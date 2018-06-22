@@ -15,49 +15,13 @@
 <body>
 
 
+
+</div>
+
 <!-- Starting JavaScript -->
 <script>
-const original = 'auburn';
-const clone = 'AUBURN'
-
-console.groupCollapsed('String');
-  console.log(original == 'auburn');
-  console.log(original == clone);
-  console.log(original == clone.toLowerCase());
-console.groupEnd();
-
-const num1 = 10;
-const num2 = '10';
-
-console.groupCollapsed('Numbers');
-  console.log(num1 == num2); //true - ex. of why js is a dynamic typed language
-  console.log(num1 === num2); //false - strictly equal is false. variable !== string
-  console.log(num1 != num2); //true
-  console.log(num1 !== num2); //false
-console.groupEnd();
-
-let what;//undefined
-let thing = null;
-
-console.groupCollapsed('Booleans');
-  console.log(Boolean(what)); //Does not have a value so it will be false
-  console.log(Boolean(thing)); //Does not have a value so it will be false
-  console.log(Boolean(num1)); //Has a value so it will be true
-  console.log(Boolean(num2));//Has a value so it will be true
-  console.log(Boolean({}));// An empty Object in JavaScript reads it to be true
-  console.log(Boolean([]));// An empty Array in JavaScript reads it to be true
-console.groupEnd();
 
 
-const firstArr = [1, 2, 3];
-const secondArr = [1, 2, 3];
-const firstObj = {color: 'red'};
-const secondObj = {color: 'red'};
-
-console.groupCollapsed('Obects and Arrays');
-  console.log(firstArr == secondArr);
-    console.log(firstObj == secondObj);
-console.groupEnd();
 
 </script>
 

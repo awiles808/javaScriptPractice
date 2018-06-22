@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Getting Started with JavaScript</title>
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body {padding: 30px;}
+
+  </style>
+</head>
+<body>
+<div class="dogs-list">
+
+</div>
+
+<!-- Starting JavaScript -->
+<script>
+  /*const name = prompt('What is your name?');
+  const username = 'awiles808';
+*/
+
+//if
+//   if (name == 'Annalise' || name == 'Auburn') {
+//   alert('Yo its Annalise or Auburn');
+// } else if (name == 'Stella') {
+//       console.log('This is Stella');
+//   } else {
+//     console.log('not Annalise');
+//   }
+
+//for loop-
+//usually for arrays and if you are wanting to run something multiple times.
+const dogsList = document.querySelector('.dogs-list');
+const dogs = [
+  {name: 'Karl', type: 'GSP'},
+  {name: 'Henrietta', type: 'Dachsund'}
+];
+
+
+//For loop takes three parts. Create a variable that will run as long as the paremeters are true.
+// for (let i = 0; i < dogs.length; i++) {
+//   //Grab the dog
+//   const dog = dogs[i];
+//   const dogData = document.createElement('div');
+//   dogData.classList.add('jumbotron', 'text-center');
+//   dogData.innerText = `${dog.name} is a ${dog.type}` ; //Template string allows you to add variables to strings.
+//   // dogData.innerText = dog.type;
+//   dogsList.appendChild(dogData);
+// }
+
+
+//while loop
+//
+// let i = 0;
+// while (i < dogs.length) {
+//     //Grab the dog
+//     const dog = dogs[i];
+//     const dogData = document.createElement('div');
+//     dogData.classList.add('jumbotron', 'text-center');
+//     dogData.innerText = `${dog.name} is a ${dog.type}` ; //Template string allows you to add variables to strings.
+//     // dogData.innerText = dog.type;
+//     dogsList.appendChild(dogData);
+//
+//   i++;
+// }
+
+
+//do while loop
+//
+// let i = 0;
+// do {
+//   //Grab the dog
+//   const dog = dogs[i];
+//   const dogData = document.createElement('div');
+//   dogData.classList.add('jumbotron', 'text-center');
+//   dogData.innerText = `${dog.name} is a ${dog.type}` ; //Template string allows you to add variables to strings.
+//   // dogData.innerText = dog.type;
+//   dogsList.appendChild(dogData);
+//
+// i++;
+//
+// } while ( i < dogs.length);
+
+
+
+//for..of iterator
+
+//
+// for ( let dog of dogs) {
+//     const dogData = document.createElement('div');
+//     dogData.classList.add('jumbotron', 'text-center');
+//     dogData.innerText = `${dog.name} is a ${dog.type}` ; //Template string allows you to add variables to strings.
+//     // dogData.innerText = dog.type;
+//     dogsList.appendChild(dogData);
+//
+// }
+
+</script>
+
+
+
+</body>
+</html>

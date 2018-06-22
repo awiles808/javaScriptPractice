@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Getting Started with JavaScript</title>
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body {padding: 30px;}
+
+  </style>
+</head>
+<body>
+<!-- //A function is a way to combine a set of functionality into common blocks, to reuse that functionality because it can be called. If you create a function you need to call it as wel. -->
+<div class="jumbotron text-center">
+  <button type="button" class='btn btn-danger'
+  onclick="saySomething('This is the first button')">
+    Push Me
+</button>
+
+<button type="button" class='btn btn-danger'
+onclick="saySomething('This is the second button')">
+    No Push Me
+</button>
+
+</div>
+
+<!-- Starting JavaScript -->
+<script>
+function saySomething(message = 'goodbye', whisper = false) {
+  if (whisper) {
+      console.log(`%c${message}`, 'font-size:7px;');
+  } else {
+  console.log(message);
+  }
+}
+
+saySomething('hello', true);
+saySomething('my name is Auburn', true);
+saySomething();
+
+  // function squared(a) {
+  //     return a * a;
+  // }
+  // const newSquared = squared(3);
+  // console.log(newSquared);
+
+   const squared = (a) => {
+      return a * a;
+  }
+  const otherSquared = squared;
+
+
+</script>
+
+
+
+</body>
+</html>
