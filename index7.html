@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Getting Started with JavaScript</title>
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body {padding: 30px;}
+
+  </style>
+</head>
+<body>
+
+
+
+</div>
+
+<!-- Starting JavaScript -->
+<script>
+
+const hero = {
+  name: 'Bruce Wayne',
+  alias: 'Batman',
+  catchphrase: 'To the Batcave!',
+  //A function inside of a Obeject is a method.
+  speak: function() {
+    return 'Attention!' + this.catchphrase
+  },
+  attack: function(sound) {
+    // return '(punches bad guy)' + sound;
+    return `(punches bad guy) ${sound}`;
+
+  }
+
+};
+
+
+//acces a property
+const thingToLookFor = 'alias';
+
+console.log(hero.name);       //Bruce Wayne
+console.log(hero['name']);    //Bruce Wayne
+console.log(hero[thingToLookFor]);   //Batman
+
+console.log(hero.speak());
+console.log(hero.attack('POWWWWWWW'));
+
+</script>
+
+
+
+</body>
+</html>
