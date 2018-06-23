@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Getting Started with JavaScript</title>
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body {padding: 30px;}
+
+  </style>
+</head>
+<body>
+
+
+
+</div>
+
+<!-- Starting JavaScript -->
+<script>
+
+  const first = 'this is a string';
+  const second = String('this is a second string');
+//   console.log('this is a string'.toUpperCase());
+//   console.log(String('this is a string').toUpperCase());
+//
+//   console.log(first === second);
+
+console.groupCollapsed('Primitives vs Objects');
+  console.log(first === second); //true
+  console.log(
+    typeof first,
+    typeof String('this is a string'),
+    typeof new String()
+  );
+    console.groupEnd();
+
+const sentence = 'this is my sentence';
+  console.groupCollapsed('String');
+  console.log(first.toUpperCase()); //THIS IS A STRING
+  console.log(second.toUpperCase());
+  console.log(sentence.startsWith('this is')); //true
+  console.log('🍁 🔥 '.repeat(135));
+    console.groupEnd();
+
+//Numbers And Math
+console.group('Numbers And Math');
+  console.log(1..toString());
+  console.log((2).toString());
+  console.log(Number.isInteger(5));
+  console.log(Number.isInteger(4.20));
+  console.log((1.65456789).toFixed(2));
+  console.log(Math.random());
+  console.log(Math.ceil(1002.36963));
+  console.log(Math.floor(6.3));
+    console.groupEnd();
+
+//Arrays
+const myArr = ['Auburn','Annalise','Stella'];
+console.group('Arrays');
+  console.log(myArr.length);
+  console.log(myArr.join('-'));
+  console.log(myArr.push('Karl'),myArr);
+  console.log(myArr.pop(),myArr);
+  console.log(myArr.pop());
+  console.log(myArr.push('Stella'));
+
+myArr.forEach(function(user) {
+  console.log(user)
+});
+
+myArr.forEach((user) => console.log(user));
+
+console.groupEnd();
+
+</script>
+
+
+
+</body>
+</html>
