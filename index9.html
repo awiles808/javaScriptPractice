@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Getting Started with JavaScript</title>
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body {padding: 30px;}
+
+  </style>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <button class="btn btn-danger" onclick="goCoocoo()">
+    Go Coocoo
+  </button>
+
+</div>
+
+<!-- OPTION 2 Use Events Directly On The Element In JS -->
+
+
+<div class="jumbotron text-center">
+  <button class="btn btn-danger coffee-btn">
+    Push To Get Coffee
+  </button>
+  <button class="btn btn-danger coffee-btn">
+    Push To Get Coffee
+  </button>
+  <button class="btn btn-danger coffee-btn">
+    Push To Get Coffee
+  </button>
+  <button class="btn btn-danger coffee-btn">
+    Push To Get Coffee
+  </button>
+</div>
+
+<!-- OPTION 3: Using add eventListner -->
+
+<div class="jumbotron text-center">
+  <button class="btn btn-primary lala-btn" >
+    I'm NOT Listening
+  </button>
+</div>
+
+
+
+
+
+<!--🔥🔥🔥🔥🔥 Starting JavaScript 🔥🔥🔥🔥🔥 -->
+<script>
+//1 Grab Elements from the DOM
+//2 Attach Event Listners
+
+function goCoocoo() {
+  document.body.style.backgroundColor = '#C00C00';
+}
+
+//OPTION 2===========================================
+const coffeeButtons = document.querySelectorAll('.coffee-btn');
+  // coffeeButton.onclick = function() {
+  //   document.body.style.backgroundColor = '#C0FFEE';
+  // }
+  // coffeeButton.onmouseenter = goCoocoo;
+
+function getCoffee() {
+  document.body.style.backgroundColor = '#C0FFEE';
+}
+
+
+  coffeeButtons.forEach(function(button) {
+    button.onclick = getCoffee;
+  })
+
+// OPTION 3
+const lalaButton = document.querySelector('.lala-btn');
+
+function imNotListening() {
+  document.body.style.backgroundColor = "#1A1A1A";
+}
+
+lalaButton.addEventListener('click',imNotListening);
+lalaButton.addEventListener('mouseenter', goCoocoo);
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('mouseleave',imNotListening));
+
+
+</script>
+
+</body>
+</html>
