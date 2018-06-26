@@ -8,68 +8,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
     body, .jumbotron {padding: 30px;}
-    .text-giant      { font-size: 40px;}
-    .btn-crazy       {
-      position: absolute;
-      top: 30px;
-      left: 35%;
-      width: 30%;
-      transform: 0.1s ease all;
-      text-align: center;
+    .timer {
+      font-size: 120px;
     }
 
   </style>
 </head>
 <body>
 
-  <button type="button" class="btn-crazy btn btn-lg btn-danger">
-    Bet you Can't Click Me!!
-  </button>
-
-  <button type="button" class="btn-crazy btn btn-lg btn-info">
-    Should Have Been Quicker!!
-  </button>
-
-  <button type="button" class="btn-crazy btn btn-lg btn-warning">
-    Almost!!
-  </button>
-
-  <button type="button" class="btn-crazy btn btn-lg btn-primary">
-    Keep Trying LOSER!!
-  </button>
-
-  <button type="button" class="btn-crazy btn btn-lg btn-success">
-    You Suck!!
-  </button>
-
-
-
 
 
 <!--🔥🔥🔥🔥🔥 Starting JavaScript 🔥🔥🔥🔥🔥 -->
 <script>
-//Grab everything we need
-const crazyButtons = document.querySelectorAll('.btn-crazy');
-
-//Define our functions
-function moveDirection(){
-
-  //Get a random number for the left offset
-    //Get a random number for the top offset
-  const offsetLeft  = Math.random() * (window.innerWidth - this.clientWidth);
-  const offsetTop   = Math.random() * (window.innerHeight - this.clientHeight);
-
-  console.log(offsetLeft, offsetTop);
-
-
-  //Apply those numbers to the button(this)
-  this.style.top = offsetTop + 'px';
-  this.style.left = offsetLeft + 'px';
-
-}
-
-//Add event listners
-crazyButtons.forEach(button => button.addEventListener('mouseenter', moveDirection));
 
 
 </script>
