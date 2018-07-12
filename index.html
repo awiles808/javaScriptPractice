@@ -24,6 +24,7 @@
       font-size: 19px;
       transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4)all;
       margin-bottom: 30px;
+      z-index: 11;
     }
 
   .floater input[type=text] {
@@ -55,6 +56,8 @@
   height: 100%;
   opacity: 0;
   transition: 0.3s ease opacity;
+  z-index: 10;
+  pointer-events: none;
 }
 body.show-floater .floater {
   transition: scale(1.2);
@@ -65,6 +68,11 @@ body.show-floater [type=text] {
 }
 body.show-floater .overlay {
   opacity: 1;
+  pointer-events: all;
+}
+.bookmarksList {
+  position: relative;
+  z-index: 9;
 }
 .bookmark {
   display: block;
@@ -110,9 +118,9 @@ body.show-floater .overlay {
 <!--🔥🔥🔥🔥🔥 Starting JavaScript 🔥🔥🔥🔥🔥 -->
 <script>
 //Grab what we need
-  const body    = document.body;
-  const input   = document.querySelector('input[type=text]');
-  const overlay = document.querySelector('.overlay');
+  const body      = document.body;
+  const input     = document.querySelector('input[type=text]');
+  const overlay   = document.querySelector('.overlay');
   //Create functions
     function showFloater() {
       body.classList.add('show-floater');
@@ -128,28 +136,70 @@ body.show-floater .overlay {
     overlay.addEventListener('click', closeFloater);
 
 //==========================
+    localStorage.setItem('my_item', 'Say something');
 
-     const bookmarksList = document.querySelector('.bookmarks-list');
-     const bookmarkForm = document.querySelector('.bookmark-form');
-     const bookmarkInput = bookmarkForm.querySelector('input[type=text]');
 
+
+     const bookmarksList   = document.querySelector('.bookmarks-list');
+     const bookmarkForm    = document.querySelector('.bookmark-form');
+     const bookmarkInput   = bookmarkForm.querySelector('input[type=text]');
+     const bookmarks       = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+    fillBookmarksList(bookmarks);
 
      function createBookmark(e) {
        e.preventDefault();
 
-       const title = bookmarkInput.value;
-       const bookmark = document.createElement('a');
-       bookmark.className = 'bookmark';
-       bookmark.innerText = title;
-       bookmark.href = ('#');
-       bookmark.target = '_blank';
-       bookmarksList.appendChild(bookmark);
+//add a new bookmark to the bookmarks
+const title          = bookmarkInput.value;
+const bookmark       = {
+  title : title
+};
+bookmarks.push(bookmark);
+fillBookmarksList(bookmarks);
+storeBookmarks(bookmarks);
+bookmarkForm.reset();
+
+console.table(bookmarks );
+//save the bookmarkrs list to the localStorage
+       // const title          = bookmarkInput.value;
+       // const bookmark       = document.createElement('a');
+       // bookmark.className   = 'bookmark';
+       // bookmark.innerText   = title;
+       // bookmark.href        = ('#');
+       // bookmark.target      = '_blank';
+       // bookmarksList.appendChild(bookmark);
+      }
+
+  function fillBookmarksList(bookmarks = []) {
+    const bookmarksHtml = bookmarks.map((bookmark) => {
+      return `
+      <a href= "#" class= "bookmark">
+      ${bookmark.title}
+      </a>
+      `;
+    }).join('');
+    bookmarksList.innerHTML = bookmarksHtml;
+
+
+    // let bookmarksHtml = '';
+    //   for (let i = 0; i < bookmarks.length; i++) {
+    //     bookmarksHtml += `
+    //     <a href= "#" class= "bookmark">
+    //     ${bookmarks[i].title}
+    //     </a>
+    //   `;
+    // }
+    // console.log(bookmarksHtml);
+  }
+
+
+function storeBookmarks(bookmarks = []) {
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+}
 
 
 
-
-       
-     }
 
      bookmarkForm.addEventListener('submit', createBookmark);
 
