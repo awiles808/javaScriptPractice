@@ -75,13 +75,15 @@ body.show-floater .overlay {
   z-index: 9;
 }
 .bookmark {
-  display: block;
+  display: flex;
   background: #FFF;
+  position: relative;
   color: #999;
   padding: 20px;
   transition: 0.3s ease all;
   border-bottom: 1px solid #DDD;
   font-size: 16px;
+
 }
 .bookmark:hover{
   color:#1CE;
@@ -95,9 +97,32 @@ body.show-floater .overlay {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom: 0;
-
 }
-
+.bookmark .img {
+  background-color: #DDD;
+  background radius: 3px;
+  background-image: url('https://images.pexels.com/photos/399969/pexels-photo-399969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  width: 80px;
+  height: 60px;
+  margin-right: 20px;
+}
+.bookmark .title {
+  display: flex;
+  align-items: center;
+}
+.bookmark .glyphicon-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #EEE;
+  font-size: 12px;
+  transition: 0.3s ease color;
+  cursor: pointer;
+}
+.bookmark:hover .glyphicon-remove {
+  color: #AAA;
+}
   </style>
 </head>
 <body>
@@ -172,10 +197,12 @@ console.table(bookmarks );
       }
 
   function fillBookmarksList(bookmarks = []) {
-    const bookmarksHtml = bookmarks.map((bookmark) => {
+    const bookmarksHtml = bookmarks.map((bookmark, i) => {
       return `
-      <a href= "#" class= "bookmark">
-      ${bookmark.title}
+      <a href= "#" class= "bookmark" data-id="${i}">
+      <div class="img"></div>
+      <div class="title">${bookmark.title}</div>
+      <span class="glyphicon glyphicon-remove"></span>
       </a>
       `;
     }).join('');
@@ -193,6 +220,27 @@ console.table(bookmarks );
     // console.log(bookmarksHtml);
   }
 
+function removeBookmark(e) {
+  if (!e.target.matches('.glyphicon-remove')) return;
+
+
+  //Find the index
+  //Remove from the bookmarks using splice
+  //fill the list
+  //store back to localStorage
+  const index = e.target.parentNode.dataset.id;
+  bookmarks.splice(index, 1);
+  fillBookmarksList(bookmarks);
+  storeBookmarks(bookmarks);
+
+
+  console.dir(index);
+
+
+
+};
+
+
 
 function storeBookmarks(bookmarks = []) {
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
@@ -202,6 +250,7 @@ function storeBookmarks(bookmarks = []) {
 
 
      bookmarkForm.addEventListener('submit', createBookmark);
+     bookmarksList.addEventListener('click', removeBookmark);
 
 </script>
 
